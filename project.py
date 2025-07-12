@@ -34,6 +34,8 @@ def main():
 
         # TODO: Add your project code
 
+        Hello
+
         # don't forget the update, otherwise nothing will show up!
         pygame.display.update()
 
