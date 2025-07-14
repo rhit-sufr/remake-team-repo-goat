@@ -2,6 +2,7 @@ import math
 
 import pygame
 
+import bullet
 import load_image
 import main
 
@@ -183,15 +184,16 @@ class Player:
             self.ammo[weapon] -= 1
 
             if weapon == "Pistol":
-                bullets.append(main.Bullet(self.x, self.y, self.direction, 10, 20, "Pistol", walls))
+                bullets.append(bullet.Bullet(self.x, self.y, self.direction, 10, 20, "Pistol", walls))
             elif weapon == "Shotgun":
                 for angle_offset in [-10, 0, 10]:
-                    bullets.append(main.Bullet(self.x, self.y, self.direction + angle_offset, 8, 15, "Shotgun", walls))
+                    bullets.append(
+                        bullet.Bullet(self.x, self.y, self.direction + angle_offset, 8, 15, "Shotgun", walls))
             elif weapon == "Rifle":
-                bullets.append(main.Bullet(self.x, self.y, self.direction, 15, 15, "Rifle", walls))
+                bullets.append(bullet.Bullet(self.x, self.y, self.direction, 15, 15, "Rifle", walls))
             elif weapon == "Rocket Launcher":
                 bullets.append(
-                    main.Bullet(self.x, self.y, self.direction, 5, 30, "Rocket Launcher", walls, is_explosive=True))
+                    bullet.Bullet(self.x, self.y, self.direction, 5, 30, "Rocket Launcher", walls, is_explosive=True))
 
             return True
         return False
